@@ -1,0 +1,23 @@
+import styled from 'styled-components';
+export default styled.a`
+    display: inline-block;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    font-stretch: inherit;
+    font-size: 24px;
+    font-family: inherit;
+    text-decoration: none;
+    margin: 0px;
+    background: transparent;
+    overflow: visible;
+    text-transform: none;
+    color: inherit;
+    outline: none;
+    border: none;
+    text-align: inherit;
+    line-height: 0;
+    padding: 12px;
+`;
