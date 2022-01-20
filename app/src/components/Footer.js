@@ -4,6 +4,7 @@ import React from "react";
 
 
 const Box = styled.h3`
+    margin-top: 80px;
     text-align: center;
     box-sizing: border-box;
     max-width: 100%;
@@ -11,16 +12,19 @@ const Box = styled.h3`
     min-height: 0px;
     flex-direction: row;
 `;
+const Link = styled.a`
+    padding:5px;
+`;
 
 export default () => {
 return(
     <Box>
-        <div>🗿 </div>
-            <a href="https://discord.gg/46G79Ag6gJ"> Discord</a>
+        <div>🗿 MindUploadingDAO</div>
+            <Link href="https://discord.gg/46G79Ag6gJ"> Discord</Link>
 
-            <a> Snapshot</a>
-
-            <a> Gov</a>
+            <Link> Snapshot</Link>
+              
+            <Link href="https://gov.minduploadingdao.org">Governance</Link>
 
     </Box>
 )

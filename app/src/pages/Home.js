@@ -23,7 +23,7 @@ export default ({ drizzle, drizzleState }) => {
             <Button>$Mind</Button>
             <Button><a href="https://discord.gg/46G79Ag6gJ">Discord</a></Button>
             <Button>Snapshot</Button>
-            <Button>Gov</Button>
+            <Button><a href="https://gov.minduploadingdao.org">Governance</a></Button>
             </Nav>
         </Header><br/>
         <Slogan>THE DAO FOR DIGITAL IMMORTALITY<br/><br/>
@@ -34,7 +34,7 @@ export default ({ drizzle, drizzleState }) => {
         <br/><br/><br/><br/>
         <h1>$MIND TOKEN DISTRIBUTION</h1>
         <h3>The contract address for $MIND is token.minduploading.eth<br/>
-            <a href="">(0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72).</a><br/><br/>
+            <a href="https://etherscan.io/address/0xe4e90ce27447fc34fb571e3daccfadee6af13736">(0xe4e90ce27447fc34fb571e3daccfadee6af13736).</a><br/><br/>
         </h3>
         <h3>
             There will be 100 billion total $MIND tokens,<br/>
@@ -62,6 +62,11 @@ known laws of physics, chemistry, and biology;
 it does not arise from some magical or otherworldly quality"</h2>
 <h4>- Christof Koch & Giulio Tononi @IEEE_Spectrum</h4>
     <br/><br/><br/><br/><br/>
+
+        <h1>Contracts Code</h1>
+        <h3>Token:<a href="https://etherscan.io/address/0xe4e90ce27447fc34fb571e3daccfadee6af13736#code">(0xe4e90ce27447fc34fb571e3daccfadee6af13736)</a></h3>
+       <h3> Governance:<a href="https://etherscan.io/address/0x9C7e15508E2d8cb16dCDA471b9FFcc7bE39659FB#code">(0x9C7e15508E2d8cb16dCDA471b9FFcc7bE39659FB)</a></h3>
+       <h3>Airdrop:<a href="https://etherscan.io/address/0xe4e90ce27447fc34fb571e3daccfadee6af13736#code">(0xe4e90ce27447fc34fb571e3daccfadee6af13736)</a></h3>
       <Footer/>
       </div>
     </Container>
