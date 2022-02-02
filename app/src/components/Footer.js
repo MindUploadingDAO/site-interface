@@ -4,7 +4,7 @@ import React from "react";
 
 
 const Box = styled.h3`
-    margin-top: 80px;
+    margin-top: 100px;
     text-align: center;
     box-sizing: border-box;
     max-width: 100%;
@@ -19,7 +19,9 @@ const Link = styled.a`
 export default () => {
 return(
     <Box>
-        <div>🗿 MindUploadingDAO</div>
+        <div>🗿 Mind Uploading DAO
+
+</div>
             <Link href="https://discord.gg/46G79Ag6gJ"> Discord</Link>
 
             <Link> Snapshot</Link>
