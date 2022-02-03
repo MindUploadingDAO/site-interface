@@ -42,9 +42,9 @@ export default ({ drizzle, drizzleState }) => {
             and the distribution is as follows:<br/><br/>
          </h3>
         <h2>
-            1. 25% Airdrop to each Ethereum address (2000 per address, first come first served)<br/><br/>
+            1. 20% Airdrop to each Ethereum address (2000 per address, first come first served)<br/><br/>
 
-            2. 20% Airdrop to every Ethereum address that has created a contract (100000 per address)<br/><br/>
+            2. 25% Airdrop to every Ethereum address that has created a contract <br/><br/>
 
             3. 50% to the DAO community treasury (to future contributors)<br/><br/>
 
