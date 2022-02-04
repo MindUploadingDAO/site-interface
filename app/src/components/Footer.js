@@ -19,13 +19,9 @@ const Link = styled.a`
 export default () => {
 return(
     <Box>
-        <div>🗿 Mind Uploading DAO
-
-</div>
+        <div>🗿 Mind Uploading DAO </div>
             <Link href="https://discord.gg/46G79Ag6gJ"> Discord</Link>
 
-            <Link> Snapshot</Link>
-              
             <Link href="https://gov.minduploadingdao.org">Governance</Link>
 
     </Box>

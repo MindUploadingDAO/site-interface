@@ -21,9 +21,7 @@ export default ({ drizzle, drizzleState }) => {
         <Header>
             <Logo >🗿 MindUploadingDAO</Logo>
             <Nav>
-            <Button>$Mind</Button>
             <Button><a href="https://discord.gg/46G79Ag6gJ">Discord</a></Button>
-            <Button>Snapshot</Button>
             <Button><a href="#">Governance</a></Button>
             </Nav>
         </Header><br/>
