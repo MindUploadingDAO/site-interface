@@ -8,6 +8,10 @@ const Slogan = styled.h1`
     font-weight: 600;
     text-align: center;
     padding:60px 0;
+
+    @media (max-width: 768px) {
+        font-size: 50px;
+    }
 `;
 
 export default Slogan;
