@@ -30,7 +30,7 @@ export default ({ drizzle, drizzleState }) => {
             <a href="https://etherscan.io/address/0x6396cAd9f2fC1e3e52aD838200f623Ab2048fdd6">(0x6396cAd9f2fC1e3e52aD838200f623Ab2048fdd6).</a><br/><br/>
         </h3>
         <h3>
-            There will be 100 billion total $MIND tokens,<br/>
+            There will be 1 billion total $MIND tokens,<br/>
             and the distribution is as follows:<br/><br/>
          </h3>
         <h2>
