@@ -4,7 +4,7 @@ import Container from '../components/Container'
 import Slogan from '../components/Slogan'
 import Header from '../components/Header'
 import Logo from '../components/Logo'
-import Button from '../components/Button'
+import Button2 from '../components/Button2'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
@@ -20,7 +20,7 @@ export default ({ drizzle, drizzleState }) => {
         <Navbar/>
         <br/>
         <Slogan>THE DAO FOR DIGITAL IMMORTALITY<br/><br/>
-            <div><Button>CLAIM $MIND TOKEN 🗿</Button></div>
+            <div><Button2>CLAIM $MIND TOKEN 🗿</Button2></div>
         </Slogan><br/><br/><br/><br/>
         <h1>INTRODUCTION</h1>
         <h2>Mind uploading, also known as whole brain emulation (WBE), is the theoretical futuristic process of scanning a physical structure of the brain accurately enough to create an emulation of the mental state (including long-term memory and 'self') and transferring or copying it to a computer in a digital form. The computer would then run a simulation of the brain's information processing, such that it would respond in essentially the same way as the original brain and experience having a sentient conscious mind.Scientists predict that the technology is expected to achieve digital immortality.We hope to use the wisdom of crowds to accelerate research in related fields through MindUploadingDAO and benefit the public.</h2>
