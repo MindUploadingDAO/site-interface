@@ -8,12 +8,9 @@ import Button2 from '../components/Button2'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-const { AccountData, ContractData, ContractForm } = newContextComponents;
 
-export default ({ drizzle, drizzleState }) => {
+function Home() {
 
-  
-  // destructure drizzle and drizzleState from props
   return (
     <Container >
       <div>
@@ -67,3 +64,5 @@ it does not arise from some magical or otherworldly quality"</h2>
     </Container>
   );
 };
+
+export default Home

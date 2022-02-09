@@ -50,8 +50,8 @@ const Ul = styled.ul`
 const RightNav = ({ open }) => {
   return (
     <Ul open={open}>
-      <li><a class="link" href="https://discord.gg/46G79Ag6gJ">Discord</a></li>
-      <li><a class="link" href="#">Governance</a></li>
+      <li><a className="link" href="https://discord.gg/46G79Ag6gJ">Discord</a></li>
+      <li><a className="link" href="#">Governance</a></li>
     </Ul>
   );
 };

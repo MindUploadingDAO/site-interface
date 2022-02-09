@@ -5,10 +5,9 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 0 auto 30px;
+    margin: 0 auto 20px;
     max-width: 70em;
-    padding-left: 15px;
-    padding-right: 15px;
+    text-align: center;
 `;
 
 export default Container;
