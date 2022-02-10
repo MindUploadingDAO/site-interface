@@ -16,37 +16,45 @@ function Airdrop() {
   const [currentAccount, setCurrentAccount] = useState(null);
   const [amount, setAmount] = useState(0);
   const [index, setIndex] = useState(0)
-  const [merkleProof, setMerkleProof] = useState([])
-  const [mdContract, setMdContract] = useState([])
-
+  const [proof, setProof] = useState([])
+  const [claimType, setClaimType] = useState(0)
+  const [amountChecked, setAmountChecked] = useState(false)
   const ipfs = 'http://bafybeidahfszm7wqzg4uboe5mch3xocin7m4737vykj6qgcgsfocpsukoq.ipfs.localhost:8080/'
 
-  if (currentAccount) {
+  const checkClaimAmount = () => {
     axios.get(ipfs + currentAccount.substring(0, 5).toUpperCase() + '.json').then((res) => {
       const info = res.data[ethers.utils.getAddress(currentAccount)]
       if(info){
-        setAmount(parseInt(info.amount, 16))
-        setMerkleProof(info.merkleProof)
-        setIndex(info.index)
-
-      }else{
-        const mdContract=getContract()
-        mdContract.claimed(currentAccount).then((isclaimed)=>{
-          console.log(isclaimed)
+        const mdContract=getProvider().mdContract
+        mdContract.isClaimed(index).then((isclaimed)=>{
+          console.log(info,isclaimed)
           if(!isclaimed){
-            setAmount(200)
+            setAmount(parseInt(info.amount, 16))
+            setProof(info.proof)
+            setIndex(info.index)
+            setClaimType(1)
           }
+          setAmountChecked(true);
         });
       }
-    })
+    }).catch(function (error) {
+      const mdContract=getProvider().mdContract
+      mdContract.claimed(currentAccount).then((isclaimed)=>{
+        if(!isclaimed){
+          setAmount(200)
+          setClaimType(2)
+          setAmountChecked(true);
+        }
+      });
+    });
   }
 
-  const getContract = () => {
+  const getProvider = () => {
     const { ethereum } = window;
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
-    const mdContract = new ethers.Contract("0x96e4Adad3Cf02cA2A071Ea113650Acc3258d4A1B", MerkleDistributor.abi, provider.getSigner());
-    return mdContract
+    const mdContract = new ethers.Contract("0x25c9697151f3fb2a265028af3a9301d8b8d531e8", MerkleDistributor.abi, signer);
+    return { provider, signer, mdContract }
   }
 
   const checkWalletIsConnected = async () => {
@@ -90,10 +98,15 @@ function Airdrop() {
     try {
       const { ethereum } = window;
 
-      if (ethereum) {
-        const mdContract=getContract()
-        console.log(mdContract)
-        let txn = await mdContract.claim2();
+      if (ethereum && claimType > 0) {
+        const mdContract=getProvider().mdContract
+        let txn ;
+        if(claimType==1){
+           console.log(index,currentAccount,amount,proof)
+           txn = await mdContract.claim(index, currentAccount, amount, proof);
+        }else if (claimType==2){
+           txn = await mdContract.claim2();
+        }
         console.log("Mining... please wait");
         await txn.wait();
         console.log(`Mined, see transaction: https://rinkeby.etherscan.io/tx/${txn.hash}`);
@@ -136,6 +149,14 @@ function Airdrop() {
     )
   }
 
+  const checkButton = () => {
+    return (
+      <Button2 onClick={checkClaimAmount} >
+        Check Amount
+      </Button2>
+    )
+  }
+
   useEffect(() => {
     checkWalletIsConnected();
   }, [])
@@ -148,9 +169,9 @@ function Airdrop() {
         <br/><br/><br/><br/>
         <h1>$MIND TOKEN CLAIM</h1>
         <h3>Your address {currentAccount}</h3>
-        <h1>You will receive {amount} $Mind</h1>
+        <h1>You will receive {amountChecked?amount:"?"} $Mind</h1>
         <br/><br/><br/><br/>
-        {currentAccount ? claimButton() : connectWalletButton()}
+        {currentAccount ? (amountChecked ? claimButton():checkButton() ): connectWalletButton()}
 
         <br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <Footer/>
