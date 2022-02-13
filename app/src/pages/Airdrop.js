@@ -1,13 +1,9 @@
 import React from "react"
 import { useEffect, useState } from 'react'
 import Container from '../components/Container'
-import Slogan from '../components/Slogan'
-import Header from '../components/Header'
-import Logo from '../components/Logo'
 import Button2 from '../components/Button2'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import Token from '../contracts/TestERC20.json'
 import MerkleDistributor from '../contracts/MerkleDistributor.json'
 import { ethers } from 'ethers'
 import axios from 'axios'
