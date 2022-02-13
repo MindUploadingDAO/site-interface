@@ -51,7 +51,8 @@ const RightNav = ({ open }) => {
   return (
     <Ul open={open}>
       <li><a className="link" href="https://discord.gg/46G79Ag6gJ">Discord</a></li>
-      <li><a className="link" href="#">Governance</a></li>
+      <li><a className="link" href="https://snapshot.org/#/minduploading.eth">Snapshot</a></li>
+      <li><a className="link" href="https://www.withtally.com/governance/eip155:1:0x7Bf0d70C0Cc3bde1e79EE7faBB59B61D7bf00480">Governance</a></li>
     </Ul>
   );
 };

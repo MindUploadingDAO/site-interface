@@ -20,9 +20,8 @@ return(
     <Box>
         <div>🗿 Mind Uploading DAO </div>
             <Link href="https://discord.gg/46G79Ag6gJ"> Discord</Link>
-
+            <Link href="https://snapshot.org/#/minduploading.eth">Snapshot</Link>
             <Link href="https://gov.minduploadingdao.org">Governance</Link>
-
     </Box>
 )
 };

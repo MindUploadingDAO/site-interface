@@ -16,6 +16,11 @@ const Button2 = styled.button`
     &:active {
         background: rgb(12, 63, 217);
     }
+
+    a{
+        text-decoration:none;
+        color:#fff;
+    }
 `;
 
 export default Button2;

@@ -13,12 +13,17 @@ const Nav = styled.nav`
     padding: 30px 0;
     font-size: 2em;
   }
+
+  .logo .link {
+    text-decoration: none;
+    color:#000000;
+  }
 `;
 
 const Navbar = () => {
     return (
       <Nav>
-        <div className="logo">🗿 MindUploadingDAO</div>
+        <div className="logo"><a className="link" href="/">🗿 MindUploadingDAO</a></div>
         <Burger />
       </Nav>
     );

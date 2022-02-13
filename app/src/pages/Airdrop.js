@@ -1,5 +1,5 @@
-import React from "react";
-import { useEffect, useState } from 'react';
+import React from "react"
+import { useEffect, useState } from 'react'
 import Container from '../components/Container'
 import Slogan from '../components/Slogan'
 import Header from '../components/Header'
@@ -7,9 +7,9 @@ import Logo from '../components/Logo'
 import Button2 from '../components/Button2'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import Token from '../contracts/TestERC20.json';
-import MerkleDistributor from '../contracts/MerkleDistributor.json';
-import { ethers } from 'ethers';
+import Token from '../contracts/TestERC20.json'
+import MerkleDistributor from '../contracts/MerkleDistributor.json'
+import { ethers } from 'ethers'
 import axios from 'axios'
 
 function Airdrop() {
@@ -17,43 +17,38 @@ function Airdrop() {
   const [amount, setAmount] = useState(0);
   const [index, setIndex] = useState(0)
   const [proof, setProof] = useState([])
-  const [claimType, setClaimType] = useState(0)
   const [amountChecked, setAmountChecked] = useState(false)
-  const ipfs = 'http://bafybeidahfszm7wqzg4uboe5mch3xocin7m4737vykj6qgcgsfocpsukoq.ipfs.localhost:8080/'
+  const ipfs = 'https://gateway.pinata.cloud/ipfs/QmV9sesn3tJNeLKmiLVvm8Qb9SU4ARc2qKdoc57M5w76yi/'
+  const mdAddress = '0xefdfffd7895af42224056da7058b17a4d9c6d4cf' 
+  
+  const checkClaimAmount = async() => {
+    try {
+      let keyName = currentAccount.substring(0, 5).toUpperCase()
+      const res = await axios.get(ipfs + keyName + ".json").then((res) => {return res});
 
-  const checkClaimAmount = () => {
-    axios.get(ipfs + currentAccount.substring(0, 5).toUpperCase() + '.json').then((res) => {
       const info = res.data[ethers.utils.getAddress(currentAccount)]
+      setAmount(0)
       if(info){
         const mdContract=getProvider().mdContract
-        mdContract.isClaimed(index).then((isclaimed)=>{
-          console.log(info,isclaimed)
-          if(!isclaimed){
-            setAmount(parseInt(info.amount, 16))
-            setProof(info.proof)
-            setIndex(info.index)
-            setClaimType(1)
-          }
-          setAmountChecked(true);
-        });
-      }
-    }).catch(function (error) {
-      const mdContract=getProvider().mdContract
-      mdContract.claimed(currentAccount).then((isclaimed)=>{
+        const isclaimed = await mdContract.isClaimed(info.index);
         if(!isclaimed){
-          setAmount(200)
-          setClaimType(2)
-          setAmountChecked(true);
+          setAmount(ethers.BigNumber.from(info.amount))
+          setProof(info.proof)
+          setIndex(info.index)
         }
-      });
-    });
+      }
+      setAmountChecked(true);
+    } catch (err) {
+      console.log(err)
+    }
   }
+  
 
   const getProvider = () => {
     const { ethereum } = window;
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
-    const mdContract = new ethers.Contract("0x25c9697151f3fb2a265028af3a9301d8b8d531e8", MerkleDistributor.abi, signer);
+    const mdContract = new ethers.Contract(mdAddress, MerkleDistributor.abi, signer);
     return { provider, signer, mdContract }
   }
 
@@ -73,6 +68,7 @@ function Airdrop() {
       const account = accounts[0];
       console.log("Found an authorized account: ", account);
       setCurrentAccount(account);
+     
     } else {
       console.log("No authorized account found");
     }
@@ -98,18 +94,13 @@ function Airdrop() {
     try {
       const { ethereum } = window;
 
-      if (ethereum && claimType > 0) {
+      if (ethereum) {
         const mdContract=getProvider().mdContract
-        let txn ;
-        if(claimType==1){
-           console.log(index,currentAccount,amount,proof)
-           txn = await mdContract.claim(index, currentAccount, amount, proof);
-        }else if (claimType==2){
-           txn = await mdContract.claim2();
-        }
+        let txn = await mdContract.claim(index, currentAccount, amount, proof);
         console.log("Mining... please wait");
         await txn.wait();
-        console.log(`Mined, see transaction: https://rinkeby.etherscan.io/tx/${txn.hash}`);
+        console.log(`Mined, see transaction: https://etherscan.io/tx/${txn.hash}`);
+        checkClaimAmount();
        
         // const provider = new ethers.providers.Web3Provider(ethereum);
         // const signer = provider.getSigner();
@@ -157,6 +148,7 @@ function Airdrop() {
     )
   }
 
+  
   useEffect(() => {
     checkWalletIsConnected();
   }, [])
@@ -169,11 +161,12 @@ function Airdrop() {
         <br/><br/><br/><br/>
         <h1>$MIND TOKEN CLAIM</h1>
         <h3>Your address {currentAccount}</h3>
-        <h1>You will receive {amountChecked?amount:"?"} $Mind</h1>
-        <br/><br/><br/><br/>
+        <h1>You will receive {amountChecked ? ethers.utils.formatUnits(amount, 18):"?"} $Mind</h1>
+        <p>(Ending block 14182045)</p>
+        <br/><br/><br/>
         {currentAccount ? (amountChecked ? claimButton():checkButton() ): connectWalletButton()}
-
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/>
       <Footer/>
       </div>
     </Container>
