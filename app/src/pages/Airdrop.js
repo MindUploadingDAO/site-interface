@@ -158,11 +158,14 @@ function Airdrop() {
         <h1>$MIND TOKEN CLAIM</h1>
         <h3>Your address {currentAccount}</h3>
         <h1>You will receive {amountChecked ? ethers.utils.formatUnits(amount, 18):"?"} $Mind</h1>
-        <p>(Ending block 14182045)</p>
         <br/><br/><br/>
         {currentAccount ? (amountChecked ? claimButton():checkButton() ): connectWalletButton()}
         <br/><br/>
         <br/><br/><br/><br/><br/><br/><br/>
+
+        <br/><br/><br/><br/><br/><br/><br/><br/>
+        <p>According to the snapshot at the end of block 14182045, all addresses that have created contracts will accept this airdrop.</p>
+        <a href="https://gateway.pinata.cloud/ipfs/QmV9sesn3tJNeLKmiLVvm8Qb9SU4ARc2qKdoc57M5w76yi/total.json">Final Aidrop List including Merkle Proofs</a>
       <Footer/>
       </div>
     </Container>

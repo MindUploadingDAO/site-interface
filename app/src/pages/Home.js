@@ -38,7 +38,7 @@ function Home() {
 
             2. 50% to the DAO community treasury<br/><br/>
 
-            3. 5% to early contributor <br/><br/>
+            3. 5% to early contributor (vesting linearly in a Timelock Contract over 12 months) <br/><br/>
 
          </h2>
 
@@ -59,7 +59,7 @@ it does not arise from some magical or otherworldly quality"</h2>
        <h3>Token:<a href="https://etherscan.io/address/0x6396cAd9f2fC1e3e52aD838200f623Ab2048fdd6#code">(0x6396cAd9f2fC1e3e52aD838200f623Ab2048fdd6)</a></h3>
        <h3>Governance:<a href="https://etherscan.io/address/0x7bf0d70c0cc3bde1e79ee7fabb59b61d7bf00480#code">(0x7bf0d70c0cc3bde1e79ee7fabb59b61d7bf00480)</a></h3>
        <h3>Timelock:<a href="https://etherscan.io/address/0x172c4cD583cd69C6E6E8B559eBC0f8D56916e2D6#code">(0x172c4cD583cd69C6E6E8B559eBC0f8D56916e2D6)</a></h3>
-       <h3>Airdrop:<a href="https://etherscan.io/address/0xefdfffd7895af42224056da7058b17a4d9c6d4cf#code">(0xefdfffd7895af42224056da7058b17a4d9c6d4cf)</a></h3>
+       <h3>Airdrop:<a href="https://etherscan.io/address/0xefdfffd7895af42224056da7058b17a4d9c6d4cf#code">(0xefdfffd7895af42224056da7058b17a4d9c6d4cf)</a> <a href="https://etherscan.io/address/0xefdfffd7895af42224056da7058b17a4d9c6d4cf#code">(0xefdfffd7895af42224056da7058b17a4d9c6d4cf)</a></h3>
       <Footer/>
       </div>
     </Container>
